@@ -5,6 +5,7 @@ Created by: Noah van Schijndel.
 ## Introduction
 This codebase was created during the graduation internship for presenting the Plural Dashboard API.
 Plural is a brainstorming tool that users are able to view session results with. This API was required to visualize certain graphs.
+Written below are explanations of certain functions within the API.
 
 ## Installation
 Download / link git repository and locate to a folder which allows a local server environment.
