@@ -1,0 +1,404 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+html, body {
+	font-family: 'PT Sans', sans-serif;
+	background-color: #FCFBFC;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+}
+
+#APITitle {
+	font-family: 'Nunito', sans-serif;
+	color: #262626;
+	font-size: 50px;
+	text-align: center;
+	width: 100%;
+	padding-top: 20px;
+}
+
+.Titles {
+	font-family: 'Nunito', sans-serif;
+	color: #262626;
+	font-size: 22px;
+}
+
+/* KEY INTERACTION INCIDENTS (Bubble Graph) */
+#KeyInteractionIncidentsWrapper {
+	background-color: #FFFFFF;
+	display: block;
+	height: auto;
+	width: 800px;
+	border-radius: 20px;
+	padding: 20px;
+	margin-top: 60px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#ChartBubble {
+	max-width: 800px;
+	height: 180px;
+	display: flex;
+	align-items: center;
+}
+
+#centerline {
+	width: 100%;
+	height: 2px;
+	background-color: #CFCFCF;
+}
+
+#BubbleData {
+	max-width: 800px;
+	height: 400px;
+	display: flex;
+	align-items: center;
+	position: absolute;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.Bubble {
+	border-radius: 50%;
+	background-color: #4080FF;
+	margin-left: 2px;
+	margin-right: 2px;
+}
+
+.Bubble:hover .tooltip-span {
+	display: block;
+}
+
+.tooltip-span {
+	display: none;
+	position: absolute;
+	z-index: 1000;
+	width:300px;
+	height:150px;
+	background: white;
+	box-shadow: 0 0 10px rgb(0 0 0 / 0.2);
+	border-radius: 10px;
+	padding-top: 5px;
+	padding: 10px;
+	font-family: 'Nunito', sans-serif;
+	color: #262626;
+	font-size: 18px;
+}
+
+.tooltip-prompt {
+	font-family: 'PT Sans', sans-serif;
+	font-style: italic; 
+	font-size: 14px;
+	color: #707070;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #CFCFCF;
+}
+
+.tooltip-info-replies {
+	font-family: 'PT Sans', sans-serif;
+	font-size: 18px;
+	font-weight: 700;
+	color: #4080FF;
+	padding-top: 10px;
+}
+
+.tooltip-info-replies:after {
+	content: "replies from this prompt";
+	font-family: 'PT Sans', sans-serif;
+	font-weight: 300;
+	font-size: 18px;
+	color: #262626;
+	padding-left: 10px;
+}
+
+.tooltip-info-reactions {
+	font-family: 'PT Sans', sans-serif;
+	font-size: 18px;
+	font-weight: 700;
+	color: #78C3FC;
+	padding-top: 5px;
+}
+
+.tooltip-info-reactions:after {
+	content: "reactions from this prompt";
+	font-family: 'PT Sans', sans-serif;
+	font-weight: 300;
+	font-size: 18px;
+	color: #262626;
+	padding-left: 10px;
+}
+
+
+#ChartBubbleSeparators {
+	max-width: 800px;
+	display: flex;
+	align-items: top;
+}
+.PaddingBlock {
+	height: 15px;
+	width: 5%;
+}
+.SectionBlock {
+	height: 15px;
+	width: 15%;
+	border-right: 1px solid #CFCFCF;
+}
+
+#ChartBubbleTimes {
+	max-width: 800px;
+	display: flex;
+	align-items: top;
+	padding-top: 5px;
+}
+.PaddingBlockText {
+	height: 15px;
+	width: 3.5%;
+}
+.TextBlock {
+	height: 15px;
+	width: 15%;
+}
+
+/* MEMBER CONTRIBUTION (Bar Graph) */
+#MemberContributionWrapper {
+	display: flex;
+	background-color: #FFFFFF;
+	display: block;
+	height: 420px;
+	width: auto;
+	border-radius: 20px;
+	padding: 20px;
+	margin: 20px;
+}
+
+#MemberContributionUserWrapper {
+	height: 100%;
+	width: 200px;
+	float: left;
+	margin-top: 30px;
+}
+
+.MemberContributionUser {
+	display: flex;
+	align-items: center;
+}
+
+.MemberContributionUserImage {
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+	overflow: hidden;
+	margin-bottom: 8px;
+}
+
+.MemberContributionUserImage img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.MemberContributionUserName {
+	font-family: 'PT Sans', sans-serif;
+	font-weight: 300;
+	font-size: 18px;
+	color: #262626;
+	margin-left: 20px;
+}
+
+.UserJobTitle {
+	font-family: 'PT Sans', sans-serif;
+	font-weight: 300;
+	font-size: 12px;
+	color: #CBCBCB;
+	display: block;
+}
+
+#MemberContributionChartWrapper {
+	height: 100%;
+	width: 300px;
+	float: right;
+}
+
+#chartBar {
+	max-width: 300px;
+}
+
+#chartBarAnonymous {
+	max-width: 300px;
+	margin-top: -50px;
+}
+
+/* CONTRIBUTION VALUES (3 Circles Graph) */
+#ContributionValuesWrapper {
+	background-color: #FFFFFF;
+	display: block;
+	height: 400px;
+	width: 500px;
+	border-radius: 20px;
+	padding: 20px;
+	margin: 20px;
+}
+
+#chartRadial {
+	max-width: 500px;
+}
+
+#ContributionValuesCenter {
+	width: 100px;
+	height: 100px;
+	text-align: center;
+	position: relative;
+	left: 200px;
+	top: -200px;
+}
+
+#SessionValueStars {
+	height: 40px;
+	background-image: url("Images/stars.png");
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+#SessionValueText {
+	font-family: 'PT Sans', sans-serif;
+	font-weight: 300;
+	font-size: 16px;
+}
+
+#SessionValue {
+	font-family: 'PT Sans', sans-serif;
+	font-size: 30px;
+	font-weight: 700;
+	color: black;
+}
+
+#ContributionValuesText {
+	font-family: 'PT Sans', sans-serif;
+	font-weight: 300;
+	font-size: 22px;
+	padding-left: 10px;
+	position: relative;
+	left: 265px;
+	top: -183px;
+}
+
+.contributionvalues-replies {
+	color: #FF931E;
+}
+.contributionvalues-replies:after {
+	content: "Replies";
+	color: #262626;
+	padding-left: 10px;
+	font-size: 18px;
+}
+
+.contributionvalues-reactions {
+	color: #FF7BAC;
+}
+.contributionvalues-reactions:after {
+	content: "Reactions";
+	color: #262626;
+	padding-left: 10px;
+	font-size: 18px;
+}
+
+
+.contributionvalues-interactions {
+	color: #4080FF;
+}
+.contributionvalues-interactions:after {
+	content: "Interactions";
+	color: #262626;
+	padding-left: 10px;
+	font-size: 18px;
+}
+
+
+
+/* Hide the browser's default checkbox */
+.container input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+	height: 0;
+	width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 20px;
+	width: 20px;
+	border-radius: 5px;
+	background-color: #eee;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+	background-color: #ea5198;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+	content: "";
+	position: absolute;
+	display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+	display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+	left: 6px;
+	top: 2px;
+	width: 5px;
+	height: 10px;
+	border: solid white;
+	border-width: 0 3px 3px 0;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+	color: #e8e8e8;
+	opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+	color: #e8e8e8;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+	color: #e8e8e8;
+}
+
+*::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: white;
+	border-radius: 20px;
+}
+
+*::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: white;
+	border-radius: 20px;
+}
+
+*::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: lightgrey;
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>PLURAL</title>
+	<meta charset="UTF-8">
+	<meta name="keywords" content=""/>
+	<meta name="description" content=""/>
+	<meta name="author" content="Noah V. Schijndel"/>
+	<meta name="copyright" content=""/>
+	<link href="CSS\Design.css" type="text/css" rel="stylesheet"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div id="APITitle">PLURAL Dashboard API</div>
+	<div id="KeyInteractionIncidentsWrapper">
+		<div class="Titles">Key Interaction Incidents</div>
+		<div id="ChartBubble">
+			<div id="centerline"></div>
+
+			<div id="BubbleData"></div>
+		</div>
+		<div id="ChartBubbleSeparators">
+			<div class="PaddingBlock" style="border-right: 1px solid #CFCFCF;"></div>
+			<div class="SectionBlock"></div>
+			<div class="SectionBlock"></div>
+			<div class="SectionBlock"></div>
+			<div class="SectionBlock"></div>
+			<div class="SectionBlock"></div>
+			<div class="SectionBlock"></div>
+			<div class="PaddingBlock"></div>
+		</div>
+		<div id="ChartBubbleTimes">
+			<div class="PaddingBlockText"></div>
+			<div class="TextBlock"></div>
+			<div class="TextBlock" id="FirstBubbleTimeInput">5m</div>
+			<div class="TextBlock"></div>
+			<div class="TextBlock" id="SecondBubbleTimeInput">15m</div>
+			<div class="TextBlock"></div>
+			<div class="TextBlock" id="ThirdBubbleTimeInput">25m</div>
+			<div class="PaddingBlockText"></div>
+		</div>
+	</div>
+
+	<div style="display: flex;justify-content: center;margin-top: 20px;">
+		<div id="MemberContributionWrapper">
+			<div class="Titles">Member Contribution</div>
+			<div id="MemberContributionUserWrapper">
+				<div id="MemberContributionUserAnonymous" class="MemberContributionUser" style="margin-top:20px;">
+					<div class="MemberContributionUserImage" style="height: 40px; width: 40px;padding:5px;padding-bottom:0"><img src="CSS/Images/Anonymous.png" /></div>
+					<div class="MemberContributionUserName">Anonymous</div>
+				</div>
+			</div>
+			<div id="MemberContributionChartWrapper">
+				<div id="chartBar"></div>
+				<div id="chartBarAnonymous"></div>
+			</div>
+		</div>
+
+		<div id="ContributionValuesWrapper">
+			<div class="Titles">Contribution Efficiency</div>
+			<div id="chartRadial"></div>
+			<div id="ContributionValuesCenter">
+				<div id="SessionValueStars"></div>
+				<div id="SessionValueText">Session value</div>
+				<div id="SessionValue" class="countup"></div>
+			</div>
+			<div id="ContributionValuesText">
+				<div class="contributionvalues-replies">&#8226</div>
+				<div class="contributionvalues-reactions">&#8226</div>
+				<div class="contributionvalues-interactions">&#8226</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script type="text/javascript" src="JS/SessionData.json"></script>
+<script type="text/javascript" src="JS/Main.js"></script>

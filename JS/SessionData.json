@@ -1,0 +1,217 @@
+var JsonSessionString = {
+  "SessionID": "FG87D1",
+  "SessionDuration": "33:48",
+  "Members": [{
+    "Name": "Emma",
+    "Role": "Projectlead",
+    "Email": "",
+    "UserImage": "Emma.png",
+    "SessionData": {
+      "Totals": {
+        "Replies": "20",
+        "Reactions": "10",
+        "Interactions": "34"
+      },
+      "IdeaTotals": {
+        "TotalShared": "14",
+        "TotalReplied": "4"
+      },
+      "Ideas": [{
+        "IdeaText": "I think we should do something like this",
+        "TimeSubmitted": "05:12",
+        "AmountRepliedTo": "1",
+        "AmountReactedTo": "0"
+      },{
+        "IdeaText": "I think we should do something like this",
+        "TimeSubmitted": "08:44",
+        "AmountRepliedTo": "1",
+        "AmountReactedTo": "0"
+      },{
+        "IdeaText": "Smart! Or maybe something along the lines of",
+        "TimeSubmitted": "10:36",
+        "AmountRepliedTo": "4",
+        "AmountReactedTo": "6",
+        "InResponseTo": {
+          "IdeaText": "Yes I think it should be this",
+          "SubmittedBy": "Corey",
+          "TimeSubmitted": "08:50"
+        }
+      }]
+    }
+  },{
+    "Name": "Corey",
+    "Role": "Senior researcher",
+    "Email": "",
+    "UserImage": "Corey.png",
+    "SessionData": {
+      "Totals": {
+        "Replies": "19",
+        "Reactions": "8",
+        "Interactions": "26"
+      },
+      "IdeaTotals": {
+        "TotalShared": "8",
+        "TotalReplied": "15"
+      },
+      "Ideas": [{
+        "IdeaText": "Yes I think it should be this",
+        "TimeSubmitted": "08:50",
+        "AmountRepliedTo": "2",
+        "AmountReactedTo": "2"
+      },{
+        "IdeaText": "Probably more like",
+        "TimeSubmitted": "12:20",
+        "AmountRepliedTo": "2",
+        "AmountReactedTo": "2"
+      },{
+        "IdeaText": "I think we should do something like this",
+        "TimeSubmitted": "22:12",
+        "AmountRepliedTo": "1",
+        "AmountReactedTo": "3"
+      }]
+    }
+  },{
+    "Name": "James",
+    "Role": "Product manager",
+    "Email": "",
+    "UserImage": "James.png",
+    "SessionData": {
+      "Totals": {
+        "Replies": "10",
+        "Reactions": "22",
+        "Interactions": "29"
+      },
+      "IdeaTotals": {
+        "TotalShared": "4",
+        "TotalReplied": "8"
+      },
+      "Ideas": [{
+        "IdeaText": "I think we should do something like this",
+        "TimeSubmitted": "13:16",
+        "AmountRepliedTo": "1",
+        "AmountReactedTo": "1",
+        "InResponseTo": {
+          "IdeaText": "Here's an idea",
+          "SubmittedBy": "Paul",
+          "TimeSubmitted": "10:44"
+        }
+      },{
+        "IdeaText": "No but maybe something along the lines of",
+        "TimeSubmitted": "22:39",
+        "AmountRepliedTo": "3",
+        "AmountReactedTo": "3",
+        "InResponseTo": {
+          "IdeaText": "Probably more like",
+          "SubmittedBy": "Corey",
+          "TimeSubmitted": "12:20"
+        }
+      },{
+        "IdeaText": "I think we should do something like this",
+        "TimeSubmitted": "26:19",
+        "AmountRepliedTo": "8",
+        "AmountReactedTo": "4"
+      }]
+    }
+  },{
+    "Name": "Jenny",
+    "Role": "Junior researcher",
+    "Email": "",
+    "UserImage": "Jenny.png",
+    "SessionData": {
+      "Totals": {
+        "Replies": "2",
+        "Reactions": "4",
+        "Interactions": "10"
+      },
+      "IdeaTotals": {
+        "TotalShared": "2",
+        "TotalReplied": "2"
+      },
+      "Ideas": [{
+        "IdeaText": "What about this radical idea",
+        "TimeSubmitted": "14:59",
+        "AmountRepliedTo": "5",
+        "AmountReactedTo": "10"
+      },{
+        "IdeaText": "I think we should do something like this",
+        "TimeSubmitted": "18:39",
+        "AmountRepliedTo": "1",
+        "AmountReactedTo": "0"
+      },{
+        "IdeaText": "I think we should do something like this",
+        "TimeSubmitted": "23:22",
+        "AmountRepliedTo": "1",
+        "AmountReactedTo": "0"
+      }]
+    }
+  },{
+    "Name": "Paul",
+    "Role": "Senior researcher",
+    "Email": "",
+    "UserImage": "Paul.png",
+    "SessionData": {
+      "Totals": {
+        "Replies": "10",
+        "Reactions": "5",
+        "Interactions": "23"
+      },
+      "IdeaTotals": {
+        "TotalShared": "7",
+        "TotalReplied": "3"
+      },
+      "Ideas": [{
+        "IdeaText": "Here's an idea",
+        "TimeSubmitted": "29:12",
+        "AmountRepliedTo": "2",
+        "AmountReactedTo": "2",
+        "InResponseTo": {
+          "IdeaText": "What about this",
+          "SubmittedBy": "Anonymous",
+          "TimeSubmitted": "26:34"
+        }
+      },{
+        "IdeaText": "Here's an idea",
+        "TimeSubmitted": "10:44",
+        "AmountRepliedTo": "1",
+        "AmountReactedTo": "1"
+      },{
+        "IdeaText": "Here's an idea",
+        "TimeSubmitted": "29:59",
+        "AmountRepliedTo": "1",
+        "AmountReactedTo": "1"
+      }]
+    }
+  },{
+    "Name": "Anonymous",
+    "Role": "",
+    "Email": "",
+    "UserImage": "Anonymous.png",
+    "SessionData": {
+      "Totals": {
+        "Replies": "2",
+        "Reactions": "3",
+        "Interactions": "5"
+      },
+      "IdeaTotals": {
+        "TotalShared": "5",
+        "TotalReplied": "4"
+      },
+      "Ideas": [{
+        "IdeaText": "What about this",
+        "TimeSubmitted": "26:34",
+        "AmountRepliedTo": "2",
+        "AmountReactedTo": "2"
+      },{
+        "IdeaText": "This wouldnt work I think",
+        "TimeSubmitted": "09:02",
+        "AmountRepliedTo": "2",
+        "AmountReactedTo": "1",
+        "InResponseTo": {
+          "IdeaText": "I think we should do something like this",
+          "SubmittedBy": "Emma",
+          "TimeSubmitted": "05:12"
+        }
+      }]
+    }
+  }] 
+};
