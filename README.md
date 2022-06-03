@@ -1,6 +1,8 @@
 # Plural Dashboard API
 
-Created by: Noah van Schijndel.
+![](https://i.imgur.com/hwHGT07.png)
+
+Created by: Noah van Schijndel - https://noahvanschijndel.nl
 
 ## Introduction
 This codebase was created during the graduation internship for presenting the Plural Dashboard API.
