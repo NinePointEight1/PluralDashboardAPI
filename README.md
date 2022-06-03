@@ -39,8 +39,8 @@ The idea with the most interactions gets the biggest circle. To find this limit 
     IdeasCombinedValuesArray.push(Number(FilteredIdeasArray[x].AmountRepliedTo) + Number(FilteredIdeasArray[x].AmountReactedTo))
   }
   var DefineMaxBubbleSize = Math.max(...IdeasCombinedValuesArray);
-  ```
-  Using the max bubble size value, it calculates the sizes of other idea bubbles. Lastly it creates a HTML String which loops through all the idea and builds them while inserting the data. 
+ ```
+Using the max bubble size value, it calculates the sizes of other idea bubbles. Lastly it creates a HTML String which loops through all the idea and builds them while inserting the data. 
   ```javascript
 //With this new array populate the bubble graph.
   var BubblesHTML = "";
@@ -55,8 +55,7 @@ The idea with the most interactions gets the biggest circle. To find this limit 
     <div class="tooltip-info-reactions">• `+ FilteredIdeasArray[z].AmountReactedTo +`</div></span></div>`
   }
   $("#BubbleData").append(BubblesHTML);
-    ```
-
+```
 ### Member Contribution Bar Graph:
 ![](https://i.imgur.com/g1myIqy.png)
 
@@ -76,7 +75,9 @@ The function in the API starts off with creating a new array with only necessary
       UserImage: SessionData.Members[i].UserImage,
       IdeaTotals: MemberContributionCombined,
       IdeaTotalsPercentage: null});
-  }```
+  }
+  ```
+
 Next it filters out the anonymous contributed ideas.
   ```javascript
     //Filter out anonymous from data since it has a different bar graph (otherwise will mess up the sort)
@@ -84,7 +85,7 @@ Next it filters out the anonymous contributed ideas.
     return e.Name !== "Anonymous";
   });
   ```
-  The bar graph needs to be arranged by most contribution. We do this by counting up the total ideas for each member and calculating their percentage contributed and arranging them afterwards.
+The bar graph needs to be arranged by most contribution. We do this by counting up the total ideas for each member and calculating their percentage contributed and arranging them afterwards.
   ```javascript
 	  //Count up total ideas by ALL members for the maximum
   for (var x = 0; x < FilteredSessionDataArrayNoAnonymous.length; x++) {
@@ -96,7 +97,7 @@ Next it filters out the anonymous contributed ideas.
   }
   //Sort array by IdeaTotalsPercentage value, highest first
   FilteredSessionDataArrayNoAnonymous.sort((b,a) => (a.IdeaTotalsPercentage > b.IdeaTotalsPercentage) ? 1 : ((b.IdeaTotalsPercentage > a.IdeaTotalsPercentage) ? -1 : 0))
-    ```
+```
 Lastly we can create the left side of the graph (filling in user details like an image, name, role). The percentages are inserted into ApexCharts to generate the bar graph.
   ```javascript
 //With this new array we can populate the bar graph users.
@@ -112,7 +113,7 @@ Lastly we can create the left side of the graph (filling in user details like an
     <span id="MemberUserJobTitle1" class="UserJobTitle">`+ FilteredSessionDataArrayNoAnonymous[z].Role +`</span></div></div>`;
   }
   $("#MemberContributionUserWrapper").prepend(MemberContributionUserHTML);
-      ```
+```
 ### Contribution Efficiency Circle Graph:
 ![](https://i.imgur.com/rvw4aMi.png)
 
@@ -133,7 +134,8 @@ The Contribution Efficiency is fairly straight forward. We first count the total
       //Count all together for maximum
     TotalEfficiencyFromMembers += (Number(`${value}`));
   }
-}      ```
+}     
+```
 These values are submitted into the ApexCharts visualization. Using the combined values we can calculate the Session Value and insert it into its corresponding html div.
   ```javascript
 $("#SessionValue").html(((TotalEfficiencyFromMembers / 300) * 100));
