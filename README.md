@@ -56,13 +56,88 @@ The idea with the most interactions gets the biggest circle. To find this limit 
   }
   $("#BubbleData").append(BubblesHTML);
     ```
-	
+
 ### Member Contribution Bar Graph:
 ![](https://i.imgur.com/g1myIqy.png)
 
+The member contribution graph is divided into 2 sections. Users, and the always active bottom section for anonymous contribution. This graph is generated using ApexCharts.js.
+The function in the API starts off with creating a new array with only necessary data for this graph.
+  ```javascript
+  //Create new two-dimensional array
+  var FilteredSessionDataArray = [];
+  //Loop through members
+  for (var i = 0; i < (SessionData.Members).length; i++) {
+    //Count IdeaTotals together into 1 number for sorting
+    var MemberContributionCombined = Number(SessionData.Members[i].SessionData.IdeaTotals.TotalShared) + Number(SessionData.Members[i].SessionData.IdeaTotals.TotalReplied);
+    //Retrieve neccesary data and push arrays into parent array
+    FilteredSessionDataArray.push({Name: SessionData.Members[i].Name, 
+      Role: SessionData.Members[i].Role, 
+      Email: SessionData.Members[i].Email, 
+      UserImage: SessionData.Members[i].UserImage,
+      IdeaTotals: MemberContributionCombined,
+      IdeaTotalsPercentage: null});
+  }```
+Next it filters out the anonymous contributed ideas.
+  ```javascript
+    //Filter out anonymous from data since it has a different bar graph (otherwise will mess up the sort)
+  var FilteredSessionDataArrayNoAnonymous = FilteredSessionDataArray.filter(function (e) {
+    return e.Name !== "Anonymous";
+  });
+  ```
+  The bar graph needs to be arranged by most contribution. We do this by counting up the total ideas for each member and calculating their percentage contributed and arranging them afterwards.
+  ```javascript
+	  //Count up total ideas by ALL members for the maximum
+  for (var x = 0; x < FilteredSessionDataArrayNoAnonymous.length; x++) {
+    MaximumContributionByMembers = (MaximumContributionByMembers + FilteredSessionDataArrayNoAnonymous[x].IdeaTotals)
+  }
+  //Loop through members to calculate their percentage of contribution and insert it into array.
+  for (var y = 0; y < FilteredSessionDataArrayNoAnonymous.length; y++) {
+    FilteredSessionDataArrayNoAnonymous[y].IdeaTotalsPercentage = Math.round(((FilteredSessionDataArrayNoAnonymous[y].IdeaTotals / MaximumContributionByMembers) * 100));
+  }
+  //Sort array by IdeaTotalsPercentage value, highest first
+  FilteredSessionDataArrayNoAnonymous.sort((b,a) => (a.IdeaTotalsPercentage > b.IdeaTotalsPercentage) ? 1 : ((b.IdeaTotalsPercentage > a.IdeaTotalsPercentage) ? -1 : 0))
+    ```
+Lastly we can create the left side of the graph (filling in user details like an image, name, role). The percentages are inserted into ApexCharts to generate the bar graph.
+  ```javascript
+//With this new array we can populate the bar graph users.
+  var MemberContributionUserHTML = "";
+  var IdeaTotalsOrdered = [];
+  for (var z = 0; z < FilteredSessionDataArrayNoAnonymous.length; z++) {
+    //Push the IdeaTotalsPercentage into a new array for APEX Charts
+    IdeaTotalsOrdered.push(Number(FilteredSessionDataArrayNoAnonymous[z].IdeaTotalsPercentage));
+    //Build the HTML string
+    MemberContributionUserHTML += `<div id="MemberContributionUser`+ z +`" class="MemberContributionUser">
+    <div class="MemberContributionUserImage"><img src="CSS/Images/`+ FilteredSessionDataArrayNoAnonymous[z].UserImage +`" /></div>
+    <div class="MemberContributionUserName">`+ FilteredSessionDataArrayNoAnonymous[z].Name +`<br/ >
+    <span id="MemberUserJobTitle1" class="UserJobTitle">`+ FilteredSessionDataArrayNoAnonymous[z].Role +`</span></div></div>`;
+  }
+  $("#MemberContributionUserWrapper").prepend(MemberContributionUserHTML);
+      ```
 ### Contribution Efficiency Circle Graph:
 ![](https://i.imgur.com/rvw4aMi.png)
 
+The Contribution Efficiency is fairly straight forward. We first count the total replies, reactions, and interactions of the session and store them into a new array.
+  ```javascript
+  var TotalEfficiencyFromMembers = 0;
+  var MemberEfficiencyReplies = 0;
+  var MemberEfficiencyReactions = 0;
+  var MemberEfficiencyInteractions = 0;
+  //Loop through members
+  for (var i = 0; i < (SessionData.Members).length; i++) {
+    //Get each entry from the totals in json file
+    for (const [key, value] of Object.entries(SessionData.Members[i].SessionData.Totals)) {
+      //Additionally count totals per category together (replies, reactions, interactions)
+      if (key == "Replies") { MemberEfficiencyReplies += (Number(`${value}`)) }
+        else if (key == "Reactions") { MemberEfficiencyReactions += (Number(`${value}`)) }
+          else if (key == "Interactions") { MemberEfficiencyInteractions += (Number(`${value}`)) }
+      //Count all together for maximum
+    TotalEfficiencyFromMembers += (Number(`${value}`));
+  }
+}      ```
+These values are submitted into the ApexCharts visualization. Using the combined values we can calculate the Session Value and insert it into its corresponding html div.
+  ```javascript
+$("#SessionValue").html(((TotalEfficiencyFromMembers / 300) * 100));
+  ```
 ## Contribution
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 Please make sure to update tests as appropriate.
